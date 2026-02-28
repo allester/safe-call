@@ -1,35 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React, { useState, useRef } from "react";
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function AudioRecorder() {
+  const [isRecording, setIsRecording] = useState(false);
+  const mediaRecorderRef = useRef(null);
+  const chunksRef = useRef([]);
+
+  const handleClick = async () => {
+    if (!isRecording) {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const mediaRecorder = new MediaRecorder(stream);
+
+        chunksRef.current = [];
+
+        mediaRecorder.ondataavailable = (event) => {
+          if (event.data.size > 0) {
+            chunksRef.current.push(event.data);
+          }
+        };
+
+        mediaRecorder.onstop = () => {
+          const blob = new Blob(chunksRef.current, { type: "audio/webm" });
+          const audioURL = URL.createObjectURL(blob);
+          const audio = new Audio(audioURL);
+          audio.play(); // Automatically plays after stopping
+        };
+
+        mediaRecorder.start();
+        mediaRecorderRef.current = mediaRecorder;
+        setIsRecording(true);
+      } catch (error) {
+        console.error("Microphone access denied:", error);
+      }
+    } else {
+      mediaRecorderRef.current.stop();
+      setIsRecording(false);
+    }
+  };
 
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <h2>This is where the talking would go.</h2>
+        <h2>For example:</h2>
+        <h3> Dispatch: Where are you?</h3>
+        <h3> You: (then it would show what you say)</h3>
+        <h3> Dispatch: (then it would show what Mistral generates)</h3>
+        <h3> etc. etc.</h3>
+        <button onClick={handleClick}>
+          {isRecording ? "Stop Recording" : "Start Recording"}
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
-
-export default App

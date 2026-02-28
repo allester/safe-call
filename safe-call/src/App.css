@@ -5,6 +5,19 @@
   text-align: center;
 }
 
+h2, h3 {
+  margin: 0px;
+  gap: 0px;
+  padding: 0px;
+}
+
+div {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -39,4 +52,12 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.button {
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  font-size: 16px;
+  cursor: pointer;
 }
