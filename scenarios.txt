@@ -1,0 +1,13 @@
+const fireScenario = {
+  scenario_type: "fire_emergency",
+  scenario_description: "The caller’s apartment caught fire due to a kitchen grease fire. Smoke is filling the hallway, and the building alarm is sounding. The caller is trapped inside but has access to a balcony.",
+  caller_name: "James Parker",
+  caller_age: 29,
+  emotional_state: "panicked",
+  location: "Apartment 12B, Oakridge Towers",
+  suspect_present: false,
+  weapon_present: false,
+  children_present: false,
+  injuries: "smoke inhalation, coughing",
+  hidden_fields: ["exact_location_in_apartment", "severity_of_fire", "neighbor_status"]
+};
