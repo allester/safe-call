@@ -1,8 +1,0 @@
-{
-    "routes": [
-        {
-            "src": "/webspatial/avp/(.*)",
-            "dest": "/webspatial/avp/$1"
-        }
-    ]
-}
