@@ -2,6 +2,8 @@
   "name": "Safe Call",
   "short_name": "SafeCall",
   "start_url": "/",
+  "scope": "/",
+
   "display": "minimal-ui",
   "xr_main_scene": {
     "default_size": {
