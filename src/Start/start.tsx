@@ -2,13 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { initScene } from "@webspatial/react-sdk";
 
-export default function Start({ isImageMode, setIsImageMode }: { isImageMode: string, setIsImageMode: (isImageMode: string) => void }) {
-
+export default function Start({
+  isImageMode,
+  setIsImageMode,
+}: {
+  isImageMode: string;
+  setIsImageMode: (isImageMode: string) => void;
+}) {
   const handleImageMode = () => {
     if (isImageMode === "VR") {
       setIsImageMode("Image");
     } else {
-      setIsImageMode("VR"); 
+      setIsImageMode("VR");
     }
   };
 
@@ -26,7 +31,7 @@ export default function Start({ isImageMode, setIsImageMode }: { isImageMode: st
             initScene("ImageMode", (prevConfig) => ({
               ...prevConfig,
               defaultSize: {
-                width: 800,  // Adjust width here
+                width: 800, // Adjust width here
                 height: 600, // Adjust height here
               },
             }));
@@ -37,7 +42,7 @@ export default function Start({ isImageMode, setIsImageMode }: { isImageMode: st
         </button>
         <button
           onClick={() => {
-         handleImageMode();
+            handleImageMode();
           }}
         >
           Open {isImageMode} Mode with a Button
