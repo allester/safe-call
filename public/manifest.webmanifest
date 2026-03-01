@@ -1,8 +1,13 @@
 {
-    "xr_main_scene": {
-        "default_size": {
-        "width": 500,
-        "height": 1000
-        }
+  "name": "Safe Call",
+  "short_name": "SafeCall",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "xr_main_scene": {
+    "default_size": {
+      "width": 1920,
+      "height": 1080
     }
   }
+  
+}
