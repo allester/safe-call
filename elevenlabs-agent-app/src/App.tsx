@@ -1,12 +1,22 @@
+<<<<<<< HEAD
+import { useCallback, useMemo, useState } from 'react';
+import { useConversation } from '@elevenlabs/react';
+import { PhoneOffIcon, PhoneIcon } from 'lucide-react';
+=======
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useConversation } from '@elevenlabs/react';
 import { PhoneOffIcon, PhoneIcon, MessageSquare, FileText, Mic } from 'lucide-react';
 import { initScene } from '@webspatial/react-sdk';
+>>>>>>> main
 import { AgentOrb } from './components/AgentOrb';
 import { TranscriptPanel, type TranscriptMessage } from './components/TranscriptPanel';
 import { SummaryPanel } from './components/SummaryPanel';
 import { AudioWavePanel } from './components/AudioWavePanel';
 import { SCENARIOS } from './scenarios';
+<<<<<<< HEAD
+
+const AGENT_ID = import.meta.env.VITE_ELEVENLABS_AGENT_ID ?? '';
+=======
 import { writeTranscript, writeSummary, writeMic, type TranscriptMessageSync } from './sync';
 
 const AGENT_ID = import.meta.env.VITE_ELEVENLABS_AGENT_ID ?? '';
@@ -17,6 +27,7 @@ const WINDOW_CONFIGS = [
   { name: 'Summary', path: 'summary', width: 420, height: 320 },
   { name: 'Audio', path: 'audio', width: 380, height: 280 },
 ] as const;
+>>>>>>> main
 
 /** visionOS / WebSpatial AVP: use WebSocket to avoid WebRTC/mic issues that can crash the app */
 function useConnectionType(): 'webrtc' | 'websocket' {
@@ -138,6 +149,8 @@ function App() {
     return assistant.slice(-3).map((m) => m.content).join(' ');
   }, [summary, messages]);
 
+<<<<<<< HEAD
+=======
   const [isSpatial, setIsSpatial] = useState(false);
   useEffect(() => {
     try {
@@ -269,6 +282,7 @@ function App() {
     );
   }
 
+>>>>>>> main
   return (
     <div className="min-h-screen bg-elevenlabs-dark text-white p-4 md:p-6">
       <div className="max-w-7xl mx-auto">
