@@ -7,6 +7,7 @@ import CategoryHubPanel from "./panels/CategoryHubPanel";
 import CategoryDetailPanel from "./panels/CategoryDetailPanel";
 import ScenarioInfoPanel from "./panels/ScenarioInfoPanel";
 import CallSimulationPanel from "./panels/CallSimulationPanel";
+import ElevenLabsAgentPanel from "./panels/ElevenLabsAgentPanel";
 import "./panels/SafeCallPanels.css";
 
 type View =
@@ -14,7 +15,8 @@ type View =
   | "categoryHub"
   | "categoryDetail"
   | "scenarioInfo"
-  | "callSimulation";
+  | "callSimulation"
+  | "elevenLabsAgent";
 
 export default function TrainingFlow() {
   const [showPlaceholderPanel, setShowPlaceholderPanel] = useState(true);
@@ -41,6 +43,7 @@ export default function TrainingFlow() {
   };
 
   const handleStartScenario = () => setView("callSimulation");
+  const handleStartWithVoiceAI = () => setView("elevenLabsAgent");
   const handleBackToCategoryDetail = () => setView("categoryDetail");
   const handleBackToCategoryHub = () => {
     setSelectedCategoryId(null);
@@ -48,6 +51,7 @@ export default function TrainingFlow() {
     setView("categoryHub");
   };
   const handleBackFromCall = () => setView("scenarioInfo");
+  const handleBackFromVoiceAI = () => setView("scenarioInfo");
 
   const isTwoPanel = view === "landing" && showPlaceholderPanel;
 
@@ -98,6 +102,7 @@ export default function TrainingFlow() {
           <ScenarioInfoPanel
             scenario={selectedScenario}
             onStartScenario={handleStartScenario}
+            onStartWithVoiceAI={handleStartWithVoiceAI}
             onBack={handleBackToCategoryDetail}
           />
         )}
@@ -106,6 +111,18 @@ export default function TrainingFlow() {
           <CallSimulationPanel
             scenarioName={selectedScenario?.name}
             onBack={handleBackFromCall}
+          />
+        )}
+
+        {view === "elevenLabsAgent" && (
+          <ElevenLabsAgentPanel
+            scenarioName={selectedScenario?.name}
+            scenarioContext={
+              selectedScenario
+                ? `You are a 911 dispatcher. The caller is practicing the scenario: ${selectedScenario.name}. ${selectedScenario.description}`
+                : undefined
+            }
+            onBack={handleBackFromVoiceAI}
           />
         )}
       </div>

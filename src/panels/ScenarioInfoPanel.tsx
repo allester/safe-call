@@ -4,6 +4,7 @@ import "./SafeCallPanels.css";
 interface ScenarioInfoPanelProps {
   scenario: ScenarioOption;
   onStartScenario: () => void;
+  onStartWithVoiceAI?: () => void;
   onBack: () => void;
 }
 
@@ -17,6 +18,7 @@ function difficultyClass(d: string): string {
 export default function ScenarioInfoPanel({
   scenario,
   onStartScenario,
+  onStartWithVoiceAI,
   onBack,
 }: ScenarioInfoPanelProps) {
   return (
@@ -38,6 +40,15 @@ export default function ScenarioInfoPanel({
         <button type="button" className="btn-start-training" onClick={onStartScenario}>
           Start Scenario
         </button>
+        {onStartWithVoiceAI && (
+          <button
+            type="button"
+            className="btn-secondary"
+            onClick={onStartWithVoiceAI}
+          >
+            Start with Voice AI
+          </button>
+        )}
         <button type="button" className="btn-secondary" onClick={onBack}>
           Back
         </button>
