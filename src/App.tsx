@@ -1,7 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import TrainingFlow from "./TrainingFlow";
+<<<<<<< HEAD
 import ImagePage from "./imagePage/image";
 import Start from "./Start/start";
+=======
+
+>>>>>>> de4e6165263f735746e3c32e608b846d131e0964
 import "./App.css";
 import { useState, useEffect } from "react";
 
