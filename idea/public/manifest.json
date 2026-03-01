@@ -1,0 +1,25 @@
+{
+  "name": "Ideaverse - Productivity Hub",
+  "short_name": "Ideaverse",
+  "description": "A spatial productivity hub for idea and task management",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "scope": "/",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/logo-ideaverse.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo-ideaverse2.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
