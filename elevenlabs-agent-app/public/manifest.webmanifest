@@ -1,0 +1,22 @@
+{
+  "name": "ElevenLabs Agent",
+  "short_name": "ElevenLabs Agent",
+  "description": "Voice conversation with ElevenLabs AI agent",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-1024-maskable.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
