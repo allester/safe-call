@@ -43,3 +43,14 @@ body {
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
   background: #3a3a3a;
 }
+
+/* Title bar as drag region for secondary windows (visionOS / WebKit) */
+.window-drag-region {
+  -webkit-app-region: drag;
+  app-region: drag;
+  user-select: none;
+  cursor: grab;
+}
+.window-drag-region:active {
+  cursor: grabbing;
+}
